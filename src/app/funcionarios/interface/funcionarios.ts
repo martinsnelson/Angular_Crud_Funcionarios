@@ -1,5 +1,5 @@
 export interface Funcionarios {
-    FuncionarioId: number;
+    FuncionarioID: number;
     PrimeiroNome: string;
     UltimoNome: string;
     EmpCod: string;

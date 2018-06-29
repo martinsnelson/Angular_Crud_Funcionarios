@@ -1,3 +1,39 @@
-<p>
-  funcionario works!
-</p>
+<form class="emp-form" #funcionarioForm="ngForm" (ngSubmit)="onSubmit(funcionarioForm)">
+  <input type="hidden" name="FuncionarioID" #FuncionarioID="ngModel" [(ngModel)]="funcionariosService.funcionarioSelecionado.FuncionarioID">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="PrimeiroNome" #PrimeiroNome="ngModel" [(ngModel)]="funcionariosService.funcionarioSelecionado.PrimeiroNome"
+        placeholder="Primeiro Nome" required>
+      <div class="validation-error" *ngIf="PrimeiroNome.invalid && PrimeiroNome.touched">Esse Campo é Requerido.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="UltimoNome" #UltimoNome="ngModel" [(ngModel)]="funcionariosService.funcionarioSelecionado.UltimoNome" placeholder="Ultimo Nome"
+        required>
+      <div class="validation-error" *ngIf="UltimoNome.invalid && UltimoNome.touched">Esse Campo é Requerido.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="Posicao" #Position="ngModel" [(ngModel)]="funcionariosService.funcionarioSelecionado.Posicao" placeholder="Posição">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="EmpCod" #EmpCode="ngModel" [(ngModel)]="funcionariosService.funcionarioSelecionado.EmpCod" placeholder="Emp Código">
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="Escritorio" #Office="ngModel" [(ngModel)]="funcionariosService.funcionarioSelecionado.Escritorio" placeholder="Escritorio">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!funcionarioForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(funcionarioForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>
+
+<!-- // selectedEmployee : Employee;
+// employeeList : Employee[]; -->
